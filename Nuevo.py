@@ -1,3 +1,5 @@
+import tkinter as tk
+
 print("Hola mundo")
 print("Hola mundo")
 print("Hola mundo")
