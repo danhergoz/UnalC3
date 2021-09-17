@@ -12,6 +12,7 @@ def saludar():
 def colorear():
     color = colorchooser.askcolor()[1]
     frame.config(bg = color)
+    label_nombre.config(bg = color)
 
 print("Hola mundo")
 print("Hola mundo")
