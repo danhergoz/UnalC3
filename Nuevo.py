@@ -1,6 +1,5 @@
 import tkinter as tk
-from tkinter import messagebox
-from tkinter import colorchooser
+from tkinter import messagebox, colorchooser
 
 def saludar():
     texto = caja_texto.get()
@@ -33,10 +32,10 @@ label_nombre.grid(row = 0, column = 0, padx = 5, pady = 5)
 caja_texto = tk.Entry(frame)
 caja_texto.grid(row = 0, column = 1, padx = 5, pady = 5)
 
-button1 = tk.Button(frame, text = 'Saludar', command = lambda:saludar())
+button1 = tk.Button(frame, text = 'Saludar', bg = 'black', fg = 'white', activebackground = 'white', activeforeground = 'black', command = lambda:saludar())
 button1.grid(row = 1, column = 0, padx = 5, pady = 5)
 
-button2 = tk.Button(frame, text = 'Escoje un color', command = lambda:colorear())
+button2 = tk.Button(frame, text = 'Escoje un color', bg = 'black', fg = 'white', activebackground = 'white', activeforeground = 'black', command = lambda:colorear())
 button2.grid(row = 1, column = 1, padx = 5, pady = 5)
 
 root.mainloop()
