@@ -2,7 +2,7 @@ from tkinter import *
 from tkinter.ttk import Combobox
 from tkinter import messagebox
 import csv
-import FuncNom
+import FunctionsNomina
 
 def procesarDatos(sena_icbf, perfil, smmlv, sueldo, dotacion, profesiones):
     if sueldo == '':
@@ -18,25 +18,25 @@ def procesarDatos(sena_icbf, perfil, smmlv, sueldo, dotacion, profesiones):
     elif sueldo == '':
         messagebox.showwarning('Sueldo', 'Ingrese un sueldo')
         return
-    auxilio_transporte_temp = FuncNom.calcularAuxilioTransporte(sueldo_temp, smmlv_temp)
+    auxilio_transporte_temp = FunctionsNomina.calcularAuxilioTransporte(sueldo_temp, smmlv_temp)
     auxilio_transporte.set(str(auxilio_transporte_temp))
-    pension_temp = FuncNom.calcularPension(sueldo_temp)
+    pension_temp = FunctionsNomina.calcularPension(sueldo_temp)
     pension.set(str(pension_temp))
-    salud_temp = FuncNom.calcularSalud(sueldo_temp)
+    salud_temp = FunctionsNomina.calcularSalud(sueldo_temp)
     salud.set(str(salud_temp))
     ciou08.set(profesiones[perfil]['Código CIOU-08'])
     clase_riesgo.set(profesiones[perfil]['Clase de Riesgo'])
     riesgo.set(profesiones[perfil]['Cotizacion'])
-    arl_temp = FuncNom.calcularArl(sueldo_temp)
+    arl_temp = FunctionsNomina.calcularArl(sueldo_temp)
     arl.set(str(arl_temp))
-    caja_compensacion_temp = FuncNom.calcularCajaCompensacion(int(sueldo))
+    caja_compensacion_temp = FunctionsNomina.calcularCajaCompensacion(int(sueldo))
     caja_compensacion.set(str(caja_compensacion_temp))
     sena_temp = 0
     icbf_temp = 0
     if sena_icbf == 'Si':
-        sena_temp = FuncNom.calcularSena(sueldo_temp)
+        sena_temp = FunctionsNomina.calcularSena(sueldo_temp)
         sena.set(str(sena_temp))
-        icbf_temp = FuncNom.calcularIcbf(sueldo_temp)
+        icbf_temp = FunctionsNomina.calcularIcbf(sueldo_temp)
         icbf.set(str(icbf_temp))
     else:
         sena.set('0')
