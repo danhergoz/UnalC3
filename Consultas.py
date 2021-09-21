@@ -9,8 +9,8 @@ mydb = mysql.connector.connect(
 
 mycursor = mydb.cursor()
 
-consulta = "SELECT ocupación FROM CIUO"
+consulta = "SELECT ciuo_ocupacion FROM ciuo"
 mycursor.execute(consulta)
 myresult = mycursor.fetchall()
 print(type(myresult))
-print(myresult[23])
+print(myresult)
