@@ -13,4 +13,5 @@ consulta = "SELECT ciuo_ocupacion FROM ciuo"
 mycursor.execute(consulta)
 myresult = mycursor.fetchall()
 print(type(myresult))
+print(len(myresult))
 print(myresult)
