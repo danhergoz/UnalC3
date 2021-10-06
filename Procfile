@@ -1,1 +1,1 @@
-web: gunicorn authProject.wsgi
+web: g unicorn authProject.wsgi
