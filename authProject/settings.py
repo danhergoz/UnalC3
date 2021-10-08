@@ -168,7 +168,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # !/usr/bin/python
 
 hostname = '153.92.215.93'
-username = 'frnimoaq_nomina'
+username = 'frnimoaq_mintic'
 password = 'unal@2021'
 database = 'frnimoaq_nomina'
 
@@ -176,7 +176,7 @@ database = 'frnimoaq_nomina'
 def doQuery(conn):
     cur = conn.cursor()
 
-    cur.execute("SELECT fname, lname FROM employee")
+    cur.execute("SELECT codigo_ciuo, clase_de_riesgo FROM frnimoaq_nomina.CIUO")
 
     for firstname, lastname in cur.fetchall():
         print(firstname, lastname)
