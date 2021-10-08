@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+from __future__ import print_function
 from pathlib import Path
 from datetime import timedelta
 
@@ -99,15 +99,26 @@ WSGI_APPLICATION = 'authProject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DATABASES = {
+  #  'default': {
+   #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #    'NAME': 'd7mmu1j5urvdn8',
+    #    'USER': 'odzbtolbpyvrzq',
+    #    'PASSWORD': '44540921ed25c818f8a62c417fa4670c218cab22a42c38614c99f6faac111905',
+    #    'HOST': 'ec2-23-21-4-7.compute-1.amazonaws.com',
+    #    'PORT': '5432',
+    #}
+#}
+
 DATABASES = {
-'default': {
-'ENGINE': 'django.db.backends.postgresql_psycopg2',
-'NAME': 'd7mmu1j5urvdn8',
-'USER': 'odzbtolbpyvrzq',
-'PASSWORD': '44540921ed25c818f8a62c417fa4670c218cab22a42c38614c99f6faac111905',
-'HOST': 'ec2-23-21-4-7.compute-1.amazonaws.com',
-'PORT': '5432',
-}
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'frnimoaq_nomina',
+        'USER': 'frnimoaq_mintic',
+        'PASSWORD': 'unal@2021',
+        'HOST': '153.92.215.93',
+        'PORT': '3306',
+    }
 }
 
 
@@ -154,9 +165,7 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#!/usr/bin/python
-
-from __future__ import print_function
+# !/usr/bin/python
 
 hostname = '153.92.215.93'
 username = 'frnimoaq_nomina'
@@ -164,33 +173,32 @@ password = 'unal@2021'
 database = 'frnimoaq_nomina'
 
 # Simple routine to run a query on a database and print the results:
-def doQuery( conn ) :
+def doQuery(conn):
     cur = conn.cursor()
 
-    cur.execute( "SELECT fname, lname FROM employee" )
+    cur.execute("SELECT fname, lname FROM employee")
 
-    for firstname, lastname in cur.fetchall() :
-        print( firstname, lastname )
+    for firstname, lastname in cur.fetchall():
+        print(firstname, lastname)
 
 
-print( "Using mysqlclient (MySQLdb):" )
+print("Using mysqlclient (MySQLdb):")
 import MySQLdb
-myConnection = MySQLdb.connect( host=hostname, user=username, passwd=password, db=database )
-doQuery( myConnection )
+myConnection = MySQLdb.connect(host=hostname, user=username, passwd=password, db=database)
+doQuery(myConnection)
 myConnection.close()
 
-print( "Using mysql.connector:" )
+print("Using mysql.connector:")
 import mysql.connector
-myConnection = mysql.connector.connect( host=hostname, user=username, passwd=password, db=database )
-doQuery( myConnection )
+myConnection = mysql.connector.connect(host=hostname, user=username, passwd=password, db=database)
+doQuery(myConnection)
 myConnection.close()
 
-print( "Using pymysql:" )
+print("Using pymysql:")
 import pymysql
-myConnection = pymysql.connect( host=hostname, user=username, passwd=password, db=database )
-doQuery( myConnection )
+myConnection = pymysql.connect(host=hostname, user=username, passwd=password, db=database)
+doQuery(myConnection)
 myConnection.close()
 
 import django_heroku
 django_heroku.settings(locals())
-
